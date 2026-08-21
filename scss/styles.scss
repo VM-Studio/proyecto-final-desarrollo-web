@@ -1,0 +1,8 @@
+// Archivo principal: solo importa los partials en orden
+@use 'variables';
+@use 'mixins';
+@use 'base';
+@use 'animations';
+@use 'navbar';
+@use 'components';
+@use 'footer';

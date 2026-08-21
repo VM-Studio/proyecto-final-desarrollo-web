@@ -1,0 +1,85 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Box model: reset básico
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $fuente-principal;
+    color: $gris-texto;
+    background-color: $crema;
+    line-height: 1.6;
+}
+
+main {
+    min-height: 70vh;
+}
+
+// Placeholder para extend
+%titulo-base {
+    color: $verde-oscuro;
+    font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+    @extend %titulo-base;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: $espacio;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-bottom: $espacio * 0.5;
+}
+
+a {
+    color: $verde-oscuro;
+    transition: color 0.3s;
+
+    &:hover {
+        color: $verde-claro;
+    }
+}
+
+.seccion {
+    padding: $espacio * 4 $espacio;
+
+    @include responsive($mobile) {
+        padding: $espacio * 2 $espacio;
+    }
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: $espacio * 2;
+    position: relative;
+
+    // Línea decorativa debajo del título con pseudoelemento
+    &::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background: $verde-claro;
+        margin: $espacio * 0.5 auto 0;
+        border-radius: 2px;
+    }
+}
+
+.imagen-redondeada {
+    border-radius: $radio;
+    @include sombra;
+}

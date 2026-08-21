@@ -1,0 +1,60 @@
+@use 'variables' as *;
+
+.navbar-raices {
+    background-color: $verde-oscuro;
+    padding: $espacio 0;
+
+    // Nesting: todo lo de adentro de la navbar
+    .navbar-brand {
+        color: $blanco;
+        font-weight: 700;
+        font-size: 1.4rem;
+
+        &:hover {
+            color: $verde-claro;
+        }
+    }
+
+    .nav-link {
+        color: $blanco;
+        margin-left: $espacio;
+        position: relative;
+        transition: color 0.3s;
+
+        // Subrayado animado con pseudoelemento
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: $verde-claro;
+            transition: width 0.3s;
+        }
+
+        // Pseudoclases
+        &:hover,
+        &:focus {
+            color: $verde-claro;
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &.active {
+            color: $verde-claro;
+            font-weight: 600;
+        }
+    }
+
+    // Adaptar el toggler de Bootstrap a la identidad
+    .navbar-toggler {
+        border-color: $verde-claro;
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(1);
+    }
+}

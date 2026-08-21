@@ -1,0 +1,21 @@
+@use 'variables' as *;
+
+// Flexbox centrado
+@mixin flex-center($direccion: row) {
+    display: flex;
+    flex-direction: $direccion;
+    justify-content: center;
+    align-items: center;
+}
+
+// Media query para tablet/mobile
+@mixin responsive($ancho: $tablet) {
+    @media (max-width: $ancho) {
+        @content;
+    }
+}
+
+// Sombra suave reutilizable
+@mixin sombra {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}

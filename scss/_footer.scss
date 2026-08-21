@@ -1,0 +1,40 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.footer {
+    background: $verde-oscuro;
+    color: $blanco;
+    padding: $espacio * 2 0;
+    margin-top: $espacio * 3;
+
+    // Flexbox
+    &__contenido {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: $espacio;
+
+        @include responsive($mobile) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    &__links {
+        list-style: none;
+        display: flex;
+        gap: $espacio;
+        flex-wrap: wrap;
+
+        a {
+            color: $blanco;
+            text-decoration: none;
+
+            &:hover {
+                color: $verde-claro;
+                text-decoration: underline;
+            }
+        }
+    }
+}
